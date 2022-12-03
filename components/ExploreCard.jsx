@@ -1,12 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
 import styles from '../styles';
 import { fadeIn } from '../utils/motion';
 
-
 const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => ( //id, imgUrl y title vienen de exploreWorlds[]
+   
    <motion.div
     variants={fadeIn('right', 'spring', index * 0.5, 0.75)} // index*0.5 hace que la animación de cada tarjeta tenga un retraso diferente 
     className={`relative ${
@@ -14,11 +13,13 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => ( //i
     } flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
     onClick={() => handleClick(id)}// setActive(id)
   >
+
     <img
       src={imgUrl}
       alt="planet-04"
       className="absolute w-full h-full object-cover rounded-[24px]"
     />
+
     {active !== id ? ( // Las Card que no esten activas tendrán el texto vertical
       <h3 className="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]">
         {title}
@@ -42,6 +43,7 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => ( //i
         </h2>
       </div>
     )}
+    
   </motion.div>
 );
 
